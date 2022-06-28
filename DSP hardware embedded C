@@ -40,3 +40,28 @@ void main()
     {
         printf("x[%d] = %f + i(%f)\n", i, xr[i], xi[i]);
     }
+    /***************************************************************/
+    /*******************circular convolution***********************/
+
+#include <stdio.h>
+int main(void)
+
+{
+    int N =4;
+    int n,k;
+    int x[] = {1,2,3,4}, h[] = {-1,1,-1,0 }, y[4];
+    for(n=0; n<N; n++)
+    {
+        y[n]=0;
+        for(k=0; k<N ;k++)
+        {
+            if(n-k<0)
+            y[n] = y[n]+x[k] * h[N+n-k];
+           else 
+           y[n] = y[n] + x[k]*h[n-k];
+        }
+        printf("y[%d] = %d\n",n,y[n]);
+    }
+    return 0;
+}
+   
