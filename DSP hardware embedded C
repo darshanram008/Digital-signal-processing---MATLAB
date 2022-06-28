@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <math.h>
+#define pi 3.1415926 
+void main()
+{
+    int N,i,k,n, x[100];
+    float xr[100], xi[100];
+    printf("enter N value:\n");
+    scanf("%d",&N);
+    printf("enter the sequence x[n]:\n");
+    for (i=0 ; i<N ; i++)
+    {
+        scanf("%d",&x[i]);
+    }
+    for (k=0 ; k<N ; k++)
+    {
+        xr[k] = 0;
+        
+         for (n=0 ; n<N ; n++)
+         {
+             xr[k] = xr[k] + (x[n] * cos((2*pi*k*n)/N));
+            
+             
+         }
+         
+    }
+     for (k=0 ; k<N ; k++)
+    {
+        
+        xi[k] = 0;
+         for (n=0 ; n<N ; n++)
+         {
+             
+             xi[k] = xi[k] + (x[n] * sin((2*pi*k*n)/N));
+             
+         }
+         
+    }
+    for (i=0; i<N; i++)
+    {
+        printf("x[%d] = %f + i(%f)\n", i, xr[i], xi[i]);
+    }
